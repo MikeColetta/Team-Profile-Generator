@@ -56,7 +56,7 @@ const addManager = () => {
             message: "what is the Team Manager's office number?"
         },
     ]).then(response => {
-        const manager = new Manager(response.managerName, response.managerID, response.managerEmail, response.officeNum);
+        const manager = new Manager(response.managerName, response.managerID, response.managerEmail, 'Manager', response.officeNum);
         currentStaff.push(manager);
         selectStaff();
     })
@@ -87,7 +87,7 @@ const addEngineer = () => {
             message: "What is the engineer's GitHub username?"
         },
     ]).then(response => {
-        const engineer = new Engineer(response.engineerName, response.engineerID, response.engineerEmail, response.gitHub);
+        const engineer = new Engineer(response.engineerName, response.engineerID, response.engineerEmail, 'Engineer', response.gitHub);
         currentStaff.push(engineer);
         selectStaff();
     })
@@ -118,7 +118,7 @@ const addIntern = () => {
             message: "What is the intern's school?"
         },
     ]).then(response => {
-        const intern = new Intern(response.internName, response.internID, response.internEmail, response.school);
+        const intern = new Intern(response.internName, response.internID, response.internEmail, 'Intern', response.school);
         currentStaff.push(intern);
         selectStaff();
     }) 
