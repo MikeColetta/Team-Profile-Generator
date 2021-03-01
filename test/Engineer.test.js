@@ -30,7 +30,7 @@ describe('Engineer', () => {
         })
     })
     describe('getGitHub', () => {
-        it('should return the Role of the Engineer', () => {
+        it('should return the GitHub username of the Engineer', () => {
             const Greg = new Engineer('Greg', 10, 'greg@business.com', 'Engineer', 'GregtheEngineer');
             const gregGitHub = 'GregtheEngineer';
             expect(Greg.getGitHub()).toBe(gregGitHub);
