@@ -6,7 +6,7 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 
-//Holds team members once selected.
+//Array that holds team members once created.
 var currentStaff = [];
 
 //User prompt questions to get data.
@@ -58,6 +58,7 @@ const addManager = () => {
     ]).then(response => {
         const manager = new Manager(response.managerName, response.managerID, response.managerEmail, 'Manager', response.officeNum);
         currentStaff.push(manager);
+        console.log(manager)
         selectStaff();
     })
     
