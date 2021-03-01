@@ -1,11 +1,21 @@
-//Calls inquirer and fs packages.
+//Calls inquirer and fs modules.
 const inquirer = require('inquirer');
 const fs = require('fs');
+//Links classes
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 
+//Holds team members once selected.
 var currentStaff = [];
+
+//Starts application
+const init = () => {
+    selectStaff()
+};
+
+init();
+
 //User prompt questions to get data.
 const selectStaff = () => {
     inquirer.prompt([
@@ -29,12 +39,7 @@ const selectStaff = () => {
     })
 }
 
-const init = () => {
-    selectStaff()
-};
-
-init();
-
+//Manager prompt questions.
 const addManager = () => {
     inquirer.prompt([
         {
@@ -65,6 +70,7 @@ const addManager = () => {
     
 }
 
+//Engineer prompt questions
 const addEngineer = () => {
     inquirer.prompt([
         {
@@ -95,6 +101,7 @@ const addEngineer = () => {
     
 }
 
+//Prompts intern questions
 const addIntern = () => {
     inquirer.prompt([
         {
@@ -123,3 +130,8 @@ const addIntern = () => {
         selectStaff();
     }) 
 };
+
+const renderHTML = () => {
+    
+
+}
