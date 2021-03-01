@@ -9,13 +9,6 @@ const Manager = require('./lib/Manager');
 //Holds team members once selected.
 var currentStaff = [];
 
-//Starts application
-const init = () => {
-    selectStaff()
-};
-
-init();
-
 //User prompt questions to get data.
 const selectStaff = () => {
     inquirer.prompt([
@@ -132,6 +125,13 @@ const addIntern = () => {
 };
 
 const renderHTML = () => {
-    
+
 
 }
+
+//Starts application
+const init = () => {
+    selectStaff()
+};
+
+init();
