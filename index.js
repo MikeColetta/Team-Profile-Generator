@@ -1,43 +1,36 @@
 //Calls inquirer and fs packages.
 const inquirer = require('inquirer');
 const fs = require('fs');
-const Employee = require('./lib/Employee');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 
 var currentStaff = [];
 //User prompt questions to get data.
-const promptUser = () =>
+const selectStaff = () => {
     inquirer.prompt([
         {
             type: 'checkbox',
             name: 'otherEmployees',
             message: 'What employees would you like to your team? You can also hit done to finish building your team.',
-            choices: [, 'Manager', 'Engineer', 'Intern', 'Done']
+            choices: ['Manager', 'Engineer', 'Intern', 'Done']
         }
     ]).then(response => {
-        if (response === 'Manager') {
+        const choice = response.otherEmployees
+        if (choice == 'Manager') {
             addManager()
-        } else if (response === 'Engineer') {
+        } else if (choice == 'Engineer') {
             addEngineer()
-        } else if (response === 'Intern') {
+        } else if (choice == 'Intern') {
             addIntern()
-        } else if (response === 'Done') {
+        } else if (choice == 'Done') {
             //function to render HTML
         }
     })
+}
 
 const init = () => {
-    promptUser().then((response) => {
-        try {
-            const renderHTML = renderHTML(response);
-            fs.writeFileSync('GeneratedHTML.html', renderHTML);
-            console.log('Success, Team Profile generated!');
-        } catch (error) {
-            console.log(error);
-        }
-    })
+    selectStaff()
 };
 
 init();
@@ -67,7 +60,9 @@ const addManager = () => {
     ]).then(response => {
         const manager = new Manager(response.managerName, response.managerID, response.managerEmail, response.officeNum);
         currentStaff.push(manager);
+        selectStaff();
     })
+    
 }
 
 const addEngineer = () => {
@@ -95,7 +90,9 @@ const addEngineer = () => {
     ]).then(response => {
         const engineer = new Engineer(response.engineerName, response.engineerID, response.engineerEmail, response.gitHub);
         currentStaff.push(engineer);
+        selectStaff();
     })
+    
 }
 
 const addIntern = () => {
@@ -123,4 +120,6 @@ const addIntern = () => {
     ]).then(response => {
         const intern = new Intern(response.internName, response.internID, response.internEmail, response.school);
         currentStaff.push(intern);
-    }
+        selectStaff();
+    }) 
+};
