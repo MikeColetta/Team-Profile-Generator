@@ -5,6 +5,7 @@ const fs = require('fs');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
+const renderHTML = require('./lib/renderHTML');
 
 //Array that holds team members once created.
 var currentStaff = [];
@@ -27,7 +28,7 @@ const selectStaff = () => {
         } else if (choice == 'Intern') {
             addIntern()
         } else if (choice == 'Done') {
-            //function to render HTML
+            renderHTML(currentStaff);
         }
     })
 }
@@ -58,7 +59,7 @@ const addManager = () => {
     ]).then(response => {
         const manager = new Manager(response.managerName, response.managerID, response.managerEmail, 'Manager', response.officeNum);
         currentStaff.push(manager);
-        console.log(manager)
+        console.log(currentStaff)
         selectStaff();
     })
     
@@ -90,6 +91,7 @@ const addEngineer = () => {
     ]).then(response => {
         const engineer = new Engineer(response.engineerName, response.engineerID, response.engineerEmail, 'Engineer', response.gitHub);
         currentStaff.push(engineer);
+        console.log(currentStaff)
         selectStaff();
     })
     
@@ -121,14 +123,12 @@ const addIntern = () => {
     ]).then(response => {
         const intern = new Intern(response.internName, response.internID, response.internEmail, 'Intern', response.school);
         currentStaff.push(intern);
+        console.log(currentStaff)
         selectStaff();
     }) 
 };
 
-const renderHTML = () => {
 
-
-}
 
 //Starts application
 const init = () => {

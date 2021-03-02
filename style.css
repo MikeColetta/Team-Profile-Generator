@@ -1,0 +1,24 @@
+
+#navBar{
+    background-color: rgb(204, 87, 87);
+    color: white;
+}
+
+.staffCard {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.employeeCard {
+    background-color: white;
+    width: 18rem;
+}
+
+.staffText {
+    color: white;
+}
+
+.card-header {
+    background-color: blue;
+    color: white;
+}
