@@ -4,7 +4,7 @@
 
 ## Description
     
-I made a node.js application using Inquire that takes members of a team and outputs an HTML web page displaying each team member, their role, email, and a unique trait based on their position.
+I made a node.js application using Inquire that takes members of a team and outputs an HTML web page displaying each team member, their role, email, and a unique trait based on their position on the team. Each role is separated into a subclass of the main class, Employee. Unit tests were written to test the Employee class and subclasses.
     
 ## Table of Contents
 1. [Installation](#installation)
