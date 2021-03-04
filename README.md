@@ -19,7 +19,7 @@ Type "node index.js" into your terminal to run.
     
 ## Usage
 
-[Video Walkthrough]()
+[Video Walkthrough](https://drive.google.com/file/d/1zpMMD97zSbCE1277nmJ2kAkiGVuA1bQS/view?usp=sharing)
     
 ## License
     
