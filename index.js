@@ -22,16 +22,16 @@ const selectStaff = () => {
     ]).then(response => {
         const choice = response.otherEmployees
         if (choice == 'Manager') {
-            addManager()
+            addManager();
         } else if (choice == 'Engineer') {
-            addEngineer()
+            addEngineer();
         } else if (choice == 'Intern') {
-            addIntern()
+            addIntern();
         } else if (choice == 'Done') {
             renderHTML(currentStaff);
         }
     })
-}
+};
 
 //Manager prompt questions.
 const addManager = () => {
@@ -59,11 +59,10 @@ const addManager = () => {
     ]).then(response => {
         const manager = new Manager(response.managerName, response.managerID, response.managerEmail, 'Manager', response.officeNum);
         currentStaff.push(manager);
-        console.log(currentStaff)
         selectStaff();
     })
     
-}
+};
 
 //Engineer prompt questions
 const addEngineer = () => {
@@ -91,7 +90,6 @@ const addEngineer = () => {
     ]).then(response => {
         const engineer = new Engineer(response.engineerName, response.engineerID, response.engineerEmail, 'Engineer', response.gitHub);
         currentStaff.push(engineer);
-        console.log(currentStaff)
         selectStaff();
     })
     
@@ -123,7 +121,6 @@ const addIntern = () => {
     ]).then(response => {
         const intern = new Intern(response.internName, response.internID, response.internEmail, 'Intern', response.school);
         currentStaff.push(intern);
-        console.log(currentStaff)
         selectStaff();
     }) 
 };
@@ -132,7 +129,7 @@ const addIntern = () => {
 
 //Starts application
 const init = () => {
-    selectStaff()
+    selectStaff();
 };
 
 init();
